@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Ecuaciones 3º ESO - Avanzado</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { background-color: #f4f7f9; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .header-section { background: #1a2a6c; background: linear-gradient(to right, #b21f1f, #fdbb2d, #1a2a6c); color: white; padding: 40px 0; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .card { border: none; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .step-solution { display: none; background-color: #f8fff9; border: 1px solid #d1e7dd; border-left: 5px solid #198754; padding: 20px; border-radius: 10px; margin-top: 15px; }
+        .problem-title { color: #2c3e50; font-weight: bold; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        #score-badge { font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<div class="header-section text-center">
+    <h1>🚀 Desafío de Ecuaciones</h1>
+    <p>Móviles y Mezclas · 3º ESO Nivel Avanzado</p>
+    <div id="score-badge" class="badge bg-light text-dark p-2 mt-2">Aciertos: <span id="score">0</span> / 6</div>
+</div>
+
+<div class="container">
+    <h3 class="mb-4 text-primary">🏎️ Bloque 1: Problemas de Movimiento</h3>
+    
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4">
+            <div class="card p-4 h-100">
+                <h5 class="problem-title">1. El Alcance</h5>
+                <p>Un camión sale a 80 km/h. Después de 2h, sale un coche tras él a 120 km/h. ¿En cuántas horas lo alcanza?</p>
+                <div class="mt-auto">
+                    <input type="number" id="ans1" class="form-control mb-2" placeholder="Horas">
+                    <button onclick="check(1, 4)" class="btn btn-primary w-100">Verificar</button>
+                    <div id="step1" class="step-solution">
+                        <b>Resolución:</b><br>
+                        $$120t = 80(t + 2)$$
+                        $$120t = 80t + 160$$
+                        $$40t = 160 \Rightarrow t = 4 \text{ h}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 h-100">
+                <h5 class="problem-title">2. El Encuentro</h5>
+                <p>Dos ciclistas distan 120 km y van uno hacia el otro a 15 y 25 km/h. ¿Cuánto tardan en cruzarse?</p>
+                <div class="mt-auto">
+                    <input type="number" id="ans2" class="form-control mb-2" placeholder="Horas">
+                    <button onclick="check(2, 3)" class="btn btn-primary w-100">Verificar</button>
+                    <div id="step2" class="step-solution">
+                        <b>Resolución:</b><br>
+                        $$15t + 25t = 120$$
+                        $$40t = 120 \Rightarrow t = 3 \text{ h}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 h-100">
+                <h5 class="problem-title">3. Velocidad del Río</h5>
+                <p>Un barco a 20 km/h tarda lo mismo en recorrer 60 km a favor de la corriente que 40 km en contra. ¿Cuál es la velocidad del río?</p>
+                <div class="mt-auto">
+                    <input type="number" id="ans3" class="form-control mb-2" placeholder="km/h">
+                    <button onclick="check(3, 4)" class="btn btn-primary w-100">Verificar</button>
+                    <div id="step3" class="step-solution">
+                        <b>Resolución:</b><br>
+                        $$\frac{60}{20+v} = \frac{40}{20-v}$$
+                        $$60(20-v) = 40(20+v)$$
+                        $$1200-60v = 800+40v \Rightarrow v = 4 \text{ km/h}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-4 text-success">🧪 Bloque 2: Problemas de Mezclas</h3>
+    
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card p-4 h-100">
+                <h5 class="problem-title">4. Frutos Secos</h5>
+                <p>Mezclamos anacardos (10€/kg) con pipas (2€/kg). Para conseguir 20kg de mezcla a 5€/kg, ¿Cuántos kg de anacardos necesitamos?</p>
+                <div class="mt-auto">
+                    <input type="number" id="ans4" class="form-control mb-2" placeholder="kg">
+                    <button onclick="check(4, 7.5, 0.1)" class="btn btn-success w-100">Verificar</button>
+                    <div id="step4" class="step-solution">
+                        <b>Resolución:</b><br>
+                        $$10x + 2(20-x) = 20 \cdot 5$$
+                        $$10x + 40 - 2x = 100$$
+                        $$8x = 60 \Rightarrow x = 7,5 \text{ kg}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 h-100">
+                <h5 class="problem-title">5. Concentración</h5>
+                <p>¿Cuántos litros de alcohol puro (100%) hay que añadir a 10L al 20% para obtener una mezcla al 40%?</p>
+                <div class="mt-auto">
+                    <input type="number" id="ans5" class="form-control mb-2" placeholder="Litros">
+                    <button onclick="check(5, 3.33, 0.05)" class="btn btn-success w-100">Verificar</button>
+                    <div id="step5" class="step-solution">
+                        <b>Resolución:</b><br>
+                        $$0,2(10) + 1(x) = 0,4(10+x)$$
+                        $$2 + x = 4 + 0,4x \Rightarrow 0,6x = 2$$
+                        $$x = 3,33 \dots \text{ L}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 h-100">
+                <h5 class="problem-title">6. Joyería (Plata)</h5>
+                <p>Fundimos plata pura (100%) con una aleación al 70%. Para conseguir 500g al 82% de pureza, ¿cuánta plata pura usamos?</p>
+                <div class="mt-auto">
+                    <input type="number" id="ans6" class="form-control mb-2" placeholder="Gramos">
+                    <button onclick="check(6, 200)" class="btn btn-success w-100">Verificar</button>
+                    <div id="step6" class="step-solution">
+                        <b>Resolución:</b><br>
+                        $$x + 0,7(500-x) = 0,82 \cdot 500$$
+                        $$0,3x + 350 = 410 \Rightarrow 0,3x = 60$$
+                        $$x = 200 \text{ g}$$
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-5">
+    <small class="text-muted">© 2026 Material Educativo Digital</small>
+</footer>
+
+<script>
+    let score = 0;
+    let solved = new Set();
+
+    function check(id, correct, tol = 0) {
+        let val = parseFloat(document.getElementById('ans' + id).value);
+        let solDiv = document.getElementById('step' + id);
+
+        if (Math.abs(val - correct) <= tol) {
+            alert("¡Excelente! Respuesta correcta.");
+            solDiv.style.display = 'block';
+            
+            // Renderiza el LaTeX una vez se muestra el div
+            MathJax.typeset();
+
+            if (!solved.has(id)) {
+                score++;
+                solved.add(id);
+                document.getElementById('score').innerText = score;
+            }
+        } else {
+            alert("Respuesta incorrecta. ¡Revisa tus cálculos!");
+        }
+    }
+</script>
+
+</body>
+</html>
